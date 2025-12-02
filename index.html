@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobBoard – Find Your Job</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f6fa;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 22px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        nav {
+            background: #34495e;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #1abc9c;
+        }
+
+        .hero {
+            height: 200px;
+            background: #1abc9c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Search Bar */
+        .search-box {
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            gap: 10px;
+        }
+        .search-box input {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 17px;
+        }
+        .search-box button {
+            padding: 12px 20px;
+            background: #2c3e50;
+            border: none;
+            color: white;
+            font-size: 17px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .search-box button:hover {
+            background: #1a242f;
+        }
+
+        /* Job Post Form */
+        .post-job {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 12px #ccc;
+            text-align: left;
+        }
+        .post-job input, .post-job textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #bbb;
+            font-size: 16px;
+        }
+        .post-job button {
+            width: 100%;
+            padding: 12px;
+            background: #1abc9c;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .post-job button:hover {
+            background: #159a82;
+        }
+
+        /* Job Listings */
+        .job-listings {
+            max-width: 900px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .job-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 12px #ccc;
+            text-align: left;
+        }
+
+        .job-card h3 {
+            margin: 0;
+            font-size: 22px;
+            color: #2c3e50;
+        }
+
+        .job-card p {
+            color: #555;
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        .apply-btn {
+            background: #2c3e50;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .apply-btn:hover {
+            background: #1a242f;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>JobBoard – Find Your Career</header>
+
+<nav>
+    <a href="#search">Search Jobs</a>
+    <a href="#post">Post a Job</a>
+    <a href="#jobs">Job Listings</a>
+</nav>
+
+<div class="hero">
+    Your Dream Job Is Waiting
+</div>
+
+<!-- Search Section -->
+<section class="section" id="search">
+    <h2>Search for Jobs</h2>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search by title, company, location...">
+        <button onclick="searchJobs()">Search</button>
+    </div>
+</section>
+
+<!-- Post a Job -->
+<section class="section" id="post">
+    <h2>Post a Job</h2>
+
+    <div class="post-job">
+        <input type="text" id="jobTitle" placeholder="Job Title">
+        <input type="text" id="companyName" placeholder="Company Name">
+        <input type="text" id="jobLocation" placeholder="Location (e.g., Mumbai)">
+        <textarea id="jobDesc" rows="4" placeholder="Job Description"></textarea>
+
+        <button onclick="postJob()">Post Job</button>
+    </div>
+</section>
+
+<!-- Job Listings -->
+<section class="section" id="jobs">
+    <h2>Available Jobs</h2>
+
+    <div class="job-listings" id="jobList">
+        <!-- Jobs will appear here -->
+        
+        <div class="job-card">
+            <h3>Web Developer</h3>
+            <p><strong>Company:</strong> TechSoft</p>
+            <p><strong>Location:</strong> Bangalore</p>
+            <p>We are looking for a skilled web developer with experience in HTML, CSS, and JS.</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+
+        <div class="job-card">
+            <h3>Graphic Designer</h3>
+            <p><strong>Company:</strong> CreativeWorks</p>
+            <p><strong>Location:</strong> Delhi</p>
+            <p>Seeking a talented graphic designer skilled in Photoshop and Illustrator.</p>
+            <button class="apply-btn">Apply</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2025 JobBoard | All Rights Reserved
+</footer>
+
+
+<!-- JavaScript -->
+<script>
+    function postJob() {
+        let title = document.getElementById("jobTitle").value;
+        let company = document.getElementById("companyName").value;
+        let location = document.getElementById("jobLocation").value;
+        let desc = document.getElementById("jobDesc").value;
+
+        if (title === "" || company === "" || location === "" || desc === "") {
+            alert("Please fill all fields!");
+            return;
+        }
+
+        let jobCard = `
+            <div class="job-card">
+                <h3>${title}</h3>
+                <p><strong>Company:</strong> ${company}</p>
+                <p><strong>Location:</strong> ${location}</p>
+                <p>${desc}</p>
+                <button class="apply-btn">Apply</button>
+            </div>
+        `;
+
+        document.getElementById("jobList").innerHTML += jobCard;
+
+        // Clear input fields
+        document.getElementById("jobTitle").value = "";
+        document.getElementById("companyName").value = "";
+        document.getElementById("jobLocation").value = "";
+        document.getElementById("jobDesc").value = "";
+    }
+
+    function searchJobs() {
+        let filter = document.getElementById("searchInput").value.toLowerCase();
+        let cards = document.getElementsByClassName("job-card");
+
+        for (let card of cards) {
+            let text = card.innerText.toLowerCase();
+            card.style.display = text.includes(filter) ? "block" : "none";
+        }
+    }
+</script>
+
+</body>
+</html>
